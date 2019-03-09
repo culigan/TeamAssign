@@ -1,0 +1,15 @@
+{
+  "name": "teamassign",
+  "version": "1.0.0",
+  "description": "for team assignments",
+  "main": "index.js",
+  "dependencies": {
+    "pg": "^7.8.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Collin Steel",
+  "license": "ISC"
+}
