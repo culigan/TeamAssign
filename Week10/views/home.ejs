@@ -8,18 +8,10 @@
    <title>Postage Cost</title>
 </head>
 <body>
-   <form id="mail" name="mail" action="/cost" method="get" >
-      <div id="weight">
-         <input name="weigh" type="text" />Weight (oz.) <br/>
-      </div>
-      <div id="radio">
-         <input name="letter" type="radio" value="stamped" />Letters (Stamped)<br />
-         <input name="letter" type="radio" value="metered" />Letters (Metered)<br/>
-         <input name="letter" type="radio" value="flats" />Large Envelopes (Flats)<br/>
-         <input name="letter" type="radio" value="retail" />First-Class Package Service-Retail<br />
+   <form id="mail" name="mail" action="/getPerson" method="get" >
+      <input name="id" type="text" />ID<br />
          
-      </div>
-      <input name="submit" type="submit" value="Caluculate Cost"/>
+      <input type="submit" value="Get Person"/>
    </form>
 </body>
 </html>
