@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta charset="utf-8" />
+   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <title>Postage Cost</title>
+</head>
+<body>
+   <form name="mail" action="/cost" method="get">
+      <div id="weight">
+         <input name="weigh" type="text" />Weight (oz.) <br/>
+      </div>
+      <div id="radio">
+         <input name="letter" type="radio" value="stamped"/>Letters (Stamped)<br />
+         <input name="letter" type="radio" value="metered"/>Letters (Metered)<br/>
+         <input name="letter" type="radio" value="flats"/>Large Envelopes (Flats)<br/>
+         <input name="letter" type="radio" value="retail"/>First-Class Package Service-Retail<br />
+      </div>
+      <input name="submit" type="submit" value="Caluculate Cost"/>
+   </form>
+</body>
+</html>
