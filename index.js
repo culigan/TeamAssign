@@ -1,4 +1,5 @@
 var express = require('express');
+const { Pool, Client } = require('pg');
 const connectionString = 'postgres://qpqyscymjuncvz:c6f3d9bc91dfd5e1769ff500e86e626f16fd8d93af810166b9e24c14d78345dc@ec2-184-73-216-48.compute-1.amazonaws.com:5432/d7cs9hmfc9ug7c';
 const PORT = process.env.PORT || 5000;
 
@@ -9,39 +10,17 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function (request, response) {
-    console.log("got here");
     response.render('home');
 });
 app.get('/getPerson', function (request, response) {
-    const { Pool, Client } = require('pg');
-    const client = new Client({
-        connectionString: conString,
-    })
-    client.connect()
-
-    //	var first_name = "";
-    //	var last_name = "";
-    //	var date_of_birth = "";
-
-    var rows = client.query('SELECT * FROM person WHERE id = $1', [id], (err, res) => {
-        console.log(err, res);
-        //	first_name = res.rows[0].first_name;
-        //	last_name = res.rows[0].last_name;
-        //	date_of_birth = res.rows[0].date_of_birth;
-        console.log(res);
-        client.end()
-        //return res.rows[0]
-    })
-
-    res.send({ first_name: rows.first_name, last_name: rows.last_name, date_of_birth: rows.date_of_birth });
-
-    //getPerson(request, response);
+    //response.render('home');
+    getPerson(request, response);
 });
 
         
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-/*function getPerson(request, response) {
+function getPerson(request, response) {
     // First get the person's id
     var id = request.query.id;
 
@@ -100,4 +79,4 @@ function getPersonFromDb(id, callback) {
         callback(null, result.rows);
     });
 
-} // end of getPersonFromDb*/
+} // end of getPersonFromDb
