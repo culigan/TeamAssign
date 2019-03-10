@@ -1,6 +1,6 @@
 var express = require('express');
 const { Pool, Client } = require('pg');
-const connectionString = process.env.DATABASE_URL;
+//const connectionString = process.env.DATABASE_URL;
 const PORT = process.env.PORT || 5000;
 
 const pool = new Pool({ connectionString: connectionString });
@@ -21,7 +21,7 @@ app.get('/getPerson', function (request, response) {
         
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-function getPerson(request, response) {
+/* getPerson(request, response) {
     // First get the person's id
     var id = request.query.id;
 
