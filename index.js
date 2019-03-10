@@ -21,7 +21,7 @@ app.get('/getPerson', function (request, response) {
         
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-getPerson(request, response) {
+function getPerson(request, response) {
     // First get the person's id
     var id = request.query.id;
 
