@@ -13,14 +13,34 @@ app.get('/', function (request, response) {
     response.render('home');
 });
 app.get('/getPerson', function (request, response) {
-    //response.render('home');
-    getPerson(request, response);
+    const client = new Client({
+        connectionString: conString,
+    })
+    client.connect()
+
+    //	var first_name = "";
+    //	var last_name = "";
+    //	var date_of_birth = "";
+
+    var rows = client.query('SELECT * FROM person WHERE id = $1', [id], (err, res) => {
+        console.log(err, res);
+        //	first_name = res.rows[0].first_name;
+        //	last_name = res.rows[0].last_name;
+        //	date_of_birth = res.rows[0].date_of_birth;
+        console.log(res);
+        client.end()
+        //return res.rows[0]
+    })
+
+    res.send({ first_name: rows.first_name, last_name: rows.last_name, date_of_birth: rows.date_of_birth });
+
+    //getPerson(request, response);
 });
 
         
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-function getPerson(request, response) {
+/*function getPerson(request, response) {
     // First get the person's id
     var id = request.query.id;
 
@@ -79,4 +99,4 @@ function getPersonFromDb(id, callback) {
         callback(null, result.rows);
     });
 
-} // end of getPersonFromDb
+} // end of getPersonFromDb*/
