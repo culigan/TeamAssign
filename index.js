@@ -1,6 +1,6 @@
 var express = require('express');
 const { Pool, Client } = require('pg');
-//const connectionString = process.env.DATABASE_URL;
+const connectionString = process.env.DATABASE_URL;
 const PORT = process.env.PORT || 5000;
 
 const pool = new Pool({ connectionString: connectionString });
