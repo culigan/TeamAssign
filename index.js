@@ -3,7 +3,6 @@ const { Pool, Client } = require('pg');
 const connectionString = "postgres://qpqyscymjuncvz:c6f3d9bc91dfd5e1769ff500e86e626f16fd8d93af810166b9e24c14d78345dc@ec2-184-73-216-48.compute-1.amazonaws.com:5432/d7cs9hmfc9ug7c";
 const PORT = process.env.PORT || 5000;
 
-const pool = new Pool({ connectionString: connectionString });
 var app = express();
 
 app.use(express.static(__dirname + '/public'));
@@ -58,7 +57,9 @@ function getPersonFromDb(id, callback) {
 
     // This runs the query, and then calls the provided anonymous callback function
     // with the results.
-    pool.query(sql, params, function (err, result) {
+    const client = new Client({ connectionString: connectionString }).connect;
+
+    client.query(sql, params, function (err, result) {
         // If an error occurred...
         if (err) {
             console.log("Error in query: ")
@@ -68,7 +69,7 @@ function getPersonFromDb(id, callback) {
 
         // Log this to the console for debugging purposes.
         console.log("Found result: " + JSON.stringify(result.rows));
-
+        client.end();
 
         // When someone else called this function, they supplied the function
         // they wanted called when we were all done. Call that function now
