@@ -57,7 +57,8 @@ function getPersonFromDb(id, callback) {
 
     // This runs the query, and then calls the provided anonymous callback function
     // with the results.
-    const pool = new Pool({ connectionString: connectionString }).connect;
+    const pool = new Pool({ connectionString: connectionString });
+    pool.connect();
 
     pool.query(sql, params, function (err, result) {
         // If an error occurred...
