@@ -13,18 +13,18 @@ app.get('/', function (request, response) {
     response.render('home');
 });
 app.get('/getPerson', function (request, response) {
-    response.render('home');
+    getPerson(request, response);
 });
 
         
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
-/*
+
 function getPerson(request, response) {
     // First get the person's id
     var id = request.query.id;
 
     // TODO: We should really check here for a valid id before continuing on...
-
+    console.log("got here");
     // use a helper function to query the DB, and provide a callback for when it's done
     getPersonFromDb(id, function (error, result) {
         // This is the callback function that will be called when the DB is done.
