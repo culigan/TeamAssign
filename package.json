@@ -1,0 +1,19 @@
+{
+  "name": "teamassign",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/culigan/TeamAssign.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/culigan/TeamAssign/issues"
+  },
+  "homepage": "https://github.com/culigan/TeamAssign#readme"
+}
