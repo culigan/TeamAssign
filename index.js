@@ -57,9 +57,9 @@ function getPersonFromDb(id, callback) {
 
     // This runs the query, and then calls the provided anonymous callback function
     // with the results.
-    const client = new Client({ connectionString: connectionString }).connect;
+    const pool = new Pool({ connectionString: connectionString }).connect;
 
-    client.query(sql, params, function (err, result) {
+    pool.query(sql, params, function (err, result) {
         // If an error occurred...
         if (err) {
             console.log("Error in query: ")
@@ -69,7 +69,6 @@ function getPersonFromDb(id, callback) {
 
         // Log this to the console for debugging purposes.
         console.log("Found result: " + JSON.stringify(result.rows));
-        client.end();
 
         // When someone else called this function, they supplied the function
         // they wanted called when we were all done. Call that function now
