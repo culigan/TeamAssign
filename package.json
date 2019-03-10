@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/culigan/TeamAssign#readme",
   "dependencies": {
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "pg": "^7.8.2"
   }
