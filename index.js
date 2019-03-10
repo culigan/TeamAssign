@@ -14,7 +14,8 @@ app.get('/', function (request, response) {
     response.render('home');
 });
 app.get('/getPerson', function (request, response) {
-    getPerson(request, response);
+    response.render('home');
+    //getPerson(request, response);
 });
 
         
