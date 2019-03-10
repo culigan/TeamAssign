@@ -1,7 +1,7 @@
 {
   "name": "teamassign",
   "version": "1.0.0",
-  "description": "team",
+  "description": "Testing",
   "main": "index.js",
   "dependencies": {
     "express": "^4.16.4",
