@@ -1,6 +1,6 @@
 var express = require('express');
 const { Pool, Client } = require('pg');
-const connectionString = "postgres://qpqyscymjuncvz:c6f3d9bc91dfd5e1769ff500e86e626f16fd8d93af810166b9e24c14d78345dc@ec2-184-73-216-48.compute-1.amazonaws.com:5432/d7cs9hmfc9ug7c";
+const connectionString = 'postgres://qpqyscymjuncvz:c6f3d9bc91dfd5e1769ff500e86e626f16fd8d93af810166b9e24c14d78345dc@ec2-184-73-216-48.compute-1.amazonaws.com:5432/d7cs9hmfc9ug7c';
 const PORT = process.env.PORT || 5000;
 
 var app = express();
@@ -13,13 +13,13 @@ app.get('/', function (request, response) {
     response.render('home');
 });
 app.get('/getPerson', function (request, response) {
-    response.render('home');
-    //getPerson(request, response);
+    //response.render('home');
+    getPerson(request, response);
 });
 
         
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
-/*
+
 function getPerson(request, response) {
     // First get the person's id
     var id = request.query.id;
@@ -49,7 +49,7 @@ function getPersonFromDb(id, callback) {
 
     // Set up the SQL that we will use for our query. Note that we can make
     // use of parameter placeholders just like with PHP's PDO.
-    var sql = "SELECT id, first, last, birthdate FROM person WHERE id = $1::int";
+    var sql = "SELECT * FROM person WHERE id = $1::int";
 
     // We now set up an array of all the parameters we will pass to fill the
     // placeholder spots we left in the query.
@@ -79,4 +79,4 @@ function getPersonFromDb(id, callback) {
         callback(null, result.rows);
     });
 
-} // end of getPersonFromDb*/
+} // end of getPersonFromDb
