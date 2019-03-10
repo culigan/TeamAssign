@@ -19,7 +19,7 @@ app.get('/getPerson', function (request, response) {
 
         
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
-
+/*
 function getPerson(request, response) {
     // First get the person's id
     var id = request.query.id;
@@ -79,4 +79,4 @@ function getPersonFromDb(id, callback) {
         callback(null, result.rows);
     });
 
-} // end of getPersonFromDb
+} // end of getPersonFromDb*/
