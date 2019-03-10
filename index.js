@@ -3,7 +3,7 @@ const { Pool, Client } = require('pg');
 const connectionString = process.env.DATABASE_URL;
 const PORT = process.env.PORT || 5000;
 
-const pool = new Pool({ connectionString: connectionString });
+//const pool = new Pool({ connectionString: connectionString });
 var app = express();
 
 app.use(express.static(__dirname + '/public'));
@@ -21,7 +21,7 @@ app.get('/getPerson', function (request, response) {
         
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-function getPerson(request, response) {
+/*function getPerson(request, response) {
     // First get the person's id
     var id = request.query.id;
 
@@ -78,4 +78,4 @@ function getPersonFromDb(id, callback) {
         callback(null, result.rows);
     });
 
-} // end of getPersonFromDb
+} // end of getPersonFromDb*/
